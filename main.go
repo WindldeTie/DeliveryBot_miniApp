@@ -12,8 +12,10 @@ import (
 func main() {
 	godotenv.Load()
 	bot := initBot()
+	go func() {
+		handler.NewHandler(bot).Start(false)
+	}()
 
-	handler.NewHandler(bot).Start(false)
 	server.SetupServer()
 }
 
