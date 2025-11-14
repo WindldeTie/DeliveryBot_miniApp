@@ -1,11 +1,15 @@
 package server
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 func SetupServer() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "temp/index.html")
-	})
+	fs := http.FileServer(http.Dir("./temp"))
+
+	http.Handle("/", fs)
+	log.Println("Listening on :8080")
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)

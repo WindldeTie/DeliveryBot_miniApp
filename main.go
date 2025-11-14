@@ -11,10 +11,10 @@ import (
 
 func main() {
 	godotenv.Load()
-	server.SetupServer()
 	bot := initBot()
 
 	handler.NewHandler(bot).Start(false)
+	server.SetupServer()
 }
 
 func initBot() *tgbotapi.BotAPI {
