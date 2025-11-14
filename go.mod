@@ -1,4 +1,4 @@
-module defaultBot
+module deliveryBot
 
 go 1.25.0
 

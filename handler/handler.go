@@ -32,8 +32,7 @@ func (h *Handler) Start(debug bool) {
 func (h *Handler) HandleUpdate(update tgbotapi.Update) {
 	if update.Message != nil {
 		command := strings.TrimSpace(update.Message.Text)
-		msgArr := strings.Split(command, " ")
-		switch msgArr[0] {
+		switch command {
 		case "/start":
 			h.handleStart(update)
 			return

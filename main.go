@@ -1,7 +1,8 @@
 package main
 
 import (
-	"defaultBot/handler"
+	"deliveryBot/handler"
+	"deliveryBot/server"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/joho/godotenv"
 	"log"
@@ -10,6 +11,7 @@ import (
 
 func main() {
 	godotenv.Load()
+	server.SetupServer()
 	bot := initBot()
 
 	handler.NewHandler(bot).Start(false)
